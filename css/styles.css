@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Geneva, Verdana, sans-serif;
+  color: #27131a;
+  background-color: #ebfafe;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+div {
+  background-color: #d5bbcd;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  flex: 30%;
+  aspect-ratio: 2 / 1;
+  box-shadow: 10px 5px 5px #675c5f;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+p {
+  font-style: oblique;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  body {
+    flex-direction: column;
+    flex: 100%;
+  }
+}
