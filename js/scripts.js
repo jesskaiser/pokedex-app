@@ -9,14 +9,13 @@ let pokemonList = [
 ];
 
 //create a for loop to iterate over the pokemonList and write to DOM, creating separate <div> for each element for styling
-let text = '';
-for (let i = 0; i < pokemonList.length; i++) {
-  text = pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ';
-  if (pokemonList[i].height > 1.7) {
+pokemonList.forEach(function(pokemon) {
+  let text = pokemon.name + ' (height: ' + pokemon.height + ') ';
+  if (pokemon.height > 1.7) {
     //add label to the biggest Pokemon 
     text += '<p>- Wow, that\'s big!</p>';
   }
-    //create separate <div> for each element -> for CSS styling
+   //create separate <div> for each element -> for CSS styling
   document.write(`<div> ${text} </div>`);
-}
+});
 
