@@ -43,15 +43,22 @@ pokemonRepository.getAll().forEach(function(pokemon) {
    //create separate <div> for each element with div id set to name -> for CSS styling
   document.write(`<div id="${pokemon.name}"> ${text} </div>`);
 });
+
 //find a pokemon in the list, if it exists find its div id and change its background color 
 let findPokemon = function (name) {
-  pokemonRepository.getAll().filter(function (pokemon) {
-    if (pokemon.name === name) {
-      document.getElementById(`${pokemon.name}`).style.backgroundColor = '#acfaae';
-      console.log(pokemon.name + ' is found');
-    } 
+//create an arraylist of pokemon names for filter function
+  let pokemonNames = [];
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonNames.push(pokemon.name);
   })
-};
+  //filter function to find a pokemon's name on the pokemonNames list
+  pokemonNames.filter(function (pokemon) {
+    if (pokemon === name) {
+     document.getElementById(`${pokemon}`).style.backgroundColor = '#acfaae';
+        console.log(pokemon + ' is found');
+   }
+ })
+}
 //test the findPokemon function
 findPokemon('Ivysaur');
 findPokemon('ladida');
