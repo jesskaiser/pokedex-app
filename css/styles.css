@@ -6,20 +6,57 @@ body {
   font-family: Geneva, Verdana, sans-serif;
   color: #27131a;
   background-color: #ebfafe;
-  display: flex;
-  flex-flow: row wrap;
   text-align: center;
+  margin: 0 auto;
 }
 
-div {
+.pokemon-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+}
+
+.pokemon-list>li {
   background-color: #d5bbcd;
   margin: 10px;
-  padding: 20px;
-  font-size: 30px;
-  flex-basis: 30%;
+  padding: 10px;
+  /* preserve aspect ratio for the box */
   aspect-ratio: 2 / 1;
+  flex-basis: 31%;
   box-shadow: 10px 5px 5px #675c5f;
-  text-shadow: 1px 1px 1px #fff;
+  box-shadow:
+    /* left */
+    inset 60px 0 120px rgb(129, 50, 61),
+    /* right */
+    inset -60px 0 120px rgb(40, 126, 126),
+    /* outer */
+    0 0 10px #625b5b;
+  border-radius: 10px;
+}
+
+.button:hover {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  opacity: 85%;
+  -webkit-transition-duration: 0.5s;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0px 2px 1px #bdabaf, 0px 1px 0px #e3e6ec, 0px 1px 0px #d4d8e2, 0px 2px 0px #d9dde7;
+  background-color: #ebfafe;
+
 }
 
 p {
@@ -28,8 +65,12 @@ p {
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
-  body {
+  .pokemon-list {
     flex-direction: column;
     flex: 100%;
+  }
+
+  .button {
+    height: 25vh;
   }
 }
