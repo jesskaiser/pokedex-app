@@ -63,6 +63,21 @@ p {
   font-style: oblique;
 }
 
+/* --- Loading message ---*/
+.loading-message {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  
+}
+.hidden{
+  display: none;
+}
+.loading-image {
+align-self: center;
+ width: 100vh;
+}
+/* ----------  */
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
   .pokemon-list {
