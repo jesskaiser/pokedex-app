@@ -5,5 +5,9 @@ _Pokédex App_ is a small web application with HTML, CSS, and JavaScript that lo
 
 ## Project dependencies: ##
 
+Bootstrap 4.3.1
+JQuery 3.3.1
+Popper 1.14.7
+
 ## APIs used: ##
 The app loads data from the [Pokémon API](https://pokeapi.co).
