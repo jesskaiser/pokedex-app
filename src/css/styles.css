@@ -104,12 +104,19 @@ body {
   background-color: var(--list-button-bg-colour);
   color: var(--secondary-text-colour);
 }
+
 .modal-title {
   font-size: 30px;
 }
+
+#close {
+  margin-right: auto;
+}
+
 .modal-body {
   color: var(--secondary-text-colour);
 }
+
 .modal-footer{
   padding: 0;
 }
@@ -120,6 +127,7 @@ body {
   color: var(--main-text-colour);
   font-size: large;
   padding: 1rem 1rem;
+  white-space: nowrap;
 }
 
 .footer-button:hover {
