@@ -86,7 +86,9 @@ body {
 .loading-message {
   display: flex;
   flex-direction: column;
-  color: var(--main-text-colour);
+  color: var(--secondary-text-colour);
+  text-align: center;
+  font-size: xx-large;
 }
 
 .loading-image {
