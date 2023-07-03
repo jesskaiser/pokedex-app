@@ -1,5 +1,6 @@
 //pokemonRepository variable to hold what the  IIFE will return, then assign the IIFE to that variable
-let pokemonRepository = (function() {
+let pokemonRepository = (function () {
+  showLoadingMessage();
   // create an empty pokemonList array
   let pokemonList = [];
 
@@ -19,30 +20,19 @@ let pokemonRepository = (function() {
     //  let text = pokemon.name + ' (height: ' + pokemon.height + ') ';
     pokemonRepository.loadDetails(pokemon).then(function () {
       let pokemonList = document.querySelector('.list-group');
-      //pokemonList.classList.add('d-grid');
-      //pokemonList.classList.add('d-grid');
-      //  if (pokemon.height > 1.7) {
-      //add label to the biggest Pokemon
-      //  text += '<p>- Wow, that\'s big!</p>';
-      // }
       let newDiv = document.createElement('div');
-      //newDiv.setAttribute('class', 'd-flex');
       let listItem = document.createElement('li');
-      listItem.classList.add('d-flex', 'flex-column-reverse','justify-center','list-group-item');
-      //listItem.classList.add("list-group-item", "text-center", "border-0");
+      listItem.classList.add('d-flex', 'flex-column-reverse', 'justify-center', 'list-group-item');
+      //add pokemon name as ID to li item
+      listItem.setAttribute('id', `${pokemon.name}`);
 
       let button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.setAttribute('data-toggle', 'modal');
       button.setAttribute('data-target', '#exampleModal');
-
-      //button.type = 'button';
       button.classList.add('btn', 'btn-pokemon');
-      //add pokemon name as ID to li item
-      listItem.setAttribute('id', `${pokemon.name}`);
 
       let listItemImageFront = document.createElement('img');
-
       listItemImageFront.setAttribute('src', pokemon.imageUrlFront);
       listItemImageFront.setAttribute('alt', `image of ${pokemon.name}`);
       listItemImageFront.setAttribute('class', 'pokemon-image');
@@ -57,9 +47,9 @@ let pokemonRepository = (function() {
       newDiv.appendChild(listItem);
       listItem.appendChild(listItemImageFront);
       listItem.appendChild(button);
+      hideLoadingMessage();
       pokemonList.appendChild(newDiv);
     })
-
   }
 
   //event listener function for button click
@@ -69,13 +59,10 @@ let pokemonRepository = (function() {
 
   //show pokemon details
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      // console.log(pokemon.name);
       showModal(pokemon);
-    });
   }
 
-//modalContainer
+  //modalContainer
   let modalContainer = document.querySelector('#exampleModal');
 
   function showModal(pokemon) {
@@ -182,7 +169,6 @@ let pokemonRepository = (function() {
   }
   //load the list of Pokemon, fetch data from API
   function loadList() {
-    showLoadingMessage();
     return fetch(apiUrl).then(function (response) {
       //method: 'GET'
       return response.json();
@@ -193,16 +179,13 @@ let pokemonRepository = (function() {
           detailsUrl: item.url
         };
         add(pokemon);
-        hideLoadingMessage();
       });
     }).catch(function (e) {
       console.error(e);
-      hideLoadingMessage();
     })
-  }
+  };
   //load detailed data of a pokemon
   function loadDetails(item) {
-    showLoadingMessage();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
@@ -214,10 +197,8 @@ let pokemonRepository = (function() {
       item.weight = details.weight;
       item.types = details.types;
       item.abilities = details.abilities;
-      hideLoadingMessage();
     }).catch(function (e) {
       console.error(e);
-      hideLoadingMessage();
     });
   }
   //show a loading message
@@ -255,7 +236,7 @@ let findPokemon = function (name) {
   name = name.toLowerCase();
   //filter function to find a pokemon's name on the pokemonNames list
   $(".list-group-item button").filter(function () {
-     $(this).parent().closest('div').toggle($(this).text().toLowerCase().indexOf(name) > -1);
+     $(this).closest('div').toggle($(this).text().toLowerCase().indexOf(name) > -1);
   })
 };
 
