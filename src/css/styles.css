@@ -36,7 +36,7 @@
 }
 
 .logo-ball:hover {
-  transform: translateX(80vw) rotate(180deg) translateY(7px);
+  transform: translateX(calc(100vw - 260px)) rotate(720deg) translateY(7px);
   transform: perspective(50px) translate(10px, 0, 20px) rotateY(3deg);
 }
 
@@ -201,6 +201,12 @@ p {
 .list-group-item:hover {
   -webkit-transition-duration: 0.2s;
   transform: scale(1.04);
+}
+@media screen and (max-width: 991px){
+  .logo-ball:hover {
+    transform: translateX(calc(50vw - 30px)) rotate(360deg) translateY(7px);
+    transform: perspective(50px) translate(10px, 0, 20px) rotateY(3deg);
+  }
 }
 
 @media screen and (min-width: 958px) and (max-width: 1199px) {
